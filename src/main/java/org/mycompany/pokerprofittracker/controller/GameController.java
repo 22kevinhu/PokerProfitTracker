@@ -1,4 +1,4 @@
-package org.mycompany.pokerprofittracker;
+package org.mycompany.pokerprofittracker.controller;
 
 import java.io.*;
 
@@ -6,7 +6,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+public class GameController extends HttpServlet {
 	private String message;
 
 	public void init() {
