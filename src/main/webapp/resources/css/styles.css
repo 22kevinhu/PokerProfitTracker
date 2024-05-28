@@ -1,0 +1,23 @@
+.mainContainer {
+    margin: 10px;
+    padding: 10px;
+}
+
+.mainMessage {
+    text-align: center;
+    align-content: center;
+}
+
+.options {
+    text-align: center;
+    align-content: center;
+}
+
+.leaderboard {
+    text-align: center;
+    align-content: center;
+}
+
+.options a {
+    margin: 10px;
+}
