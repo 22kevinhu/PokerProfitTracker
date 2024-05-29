@@ -9,17 +9,16 @@ import org.mycompany.pokerprofittracker.model.User;
 
 import java.io.IOException;
 
-@WebServlet("/userController")
+@WebServlet(value = "/userController")
 public class UserController extends HttpServlet {
-	private final UserDAO userDAO = new UserDAO();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		UserDAO userDAO = new UserDAO();
 		String username = request.getParameter("name");
-
 		User user = new User(username);
-		user.setUserName(username);
 
 		userDAO.addUser(user);
-		response.sendRedirect("dashboard.jsp");
+		response.sendRedirect("views/addUser.jsp");
+		System.out.println("Successfully added user");
 	}
 }
