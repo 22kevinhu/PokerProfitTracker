@@ -1,6 +1,5 @@
 package org.mycompany.pokerprofittracker.controller;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,14 +11,15 @@ import java.io.IOException;
 
 @WebServlet("/userController")
 public class UserController extends HttpServlet {
-	private UserDAO userDAO = new UserDAO();
+	private final UserDAO userDAO = new UserDAO();
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String username = request.getParameter("name");
 
 		User user = new User(username);
 		user.setUserName(username);
 
 		userDAO.addUser(user);
+		response.sendRedirect("dashboard.jsp");
 	}
 }

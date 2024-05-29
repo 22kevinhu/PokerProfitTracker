@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionPool {
-	private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/pokerprofittracker";
+	private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/userData";
 	private static final String MYSQL_USER = "root";
 	private static final String MYSQL_PASSWORD = "0127";
 
@@ -13,10 +13,13 @@ public class ConnectionPool {
 		Connection connection = null;
 		try {
 			// Loads the MySQL JDBC Driver
+			System.out.println("Connecting to database...");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			connection = DriverManager.getConnection(MYSQL_URL, MYSQL_USER, MYSQL_PASSWORD);
+			System.out.println("Successfully connected to database!");
 		} catch (ClassNotFoundException e) {
+			System.out.println("Failed to load JDBC driver!" + e.getMessage());
 			e.printStackTrace();
 		}
 		return connection;
@@ -30,5 +33,10 @@ public class ConnectionPool {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public static void main(String[] args) throws SQLException {
+		Connection conn = getConnection();
+		System.out.println(conn);
 	}
 }

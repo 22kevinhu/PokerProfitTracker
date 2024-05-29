@@ -14,7 +14,7 @@ public class UserDAO {
 
 		try {
 			conn = ConnectionPool.getConnection();
-			String query = "INSERT INTO users (name, totalGambled) VALUES (?, ?)";
+			String query = "INSERT INTO users (name, totalGambled) VALUES (Kevin, 2.0)";
 			statement = conn.prepareStatement(query);
 			statement.setString(1, user.getUserName());
 			statement.setDouble(2, user.getTotalSpent());

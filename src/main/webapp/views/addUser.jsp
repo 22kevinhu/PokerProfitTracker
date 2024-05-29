@@ -21,9 +21,10 @@
             <form action="userController" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name"><br>
+
+                <input type="submit" value="submit">
             </form>
 
-            <input type="submit" value="submit">
         </div>
     </div>
 </body>
