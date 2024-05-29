@@ -34,9 +34,4 @@ public class ConnectionPool {
 			}
 		}
 	}
-
-	public static void main(String[] args) throws SQLException {
-		Connection conn = getConnection();
-		System.out.println(conn);
-	}
 }

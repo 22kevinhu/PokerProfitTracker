@@ -1,28 +1,33 @@
 package org.mycompany.pokerprofittracker.controller;
 
 import java.io.*;
+import java.util.List;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.mycompany.pokerprofittracker.dao.GameDAO;
+import org.mycompany.pokerprofittracker.dao.UserDAO;
+import org.mycompany.pokerprofittracker.model.Game;
+import org.mycompany.pokerprofittracker.model.User;
 
-@WebServlet(name = "GameController", value = "/game-controller")
+@WebServlet(value = "/gameController")
 public class GameController extends HttpServlet {
-	private String message;
 
-	public void init() {
-		message = "Hello World!";
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		GameDAO gameDAO = new GameDAO();
+//		Game game = new Game(request.getParameter(""));
 	}
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setContentType("text/html");
-
-		// Hello
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<h1>" + message + "</h1>");
-		out.println("</body></html>");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		GameDAO gameDAO = new GameDAO();
+		List<User> users = gameDAO.getAllUsers();
+		request.setAttribute("users", users);
+		try {
+			request.getRequestDispatcher("/views/addGame.jsp").forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void destroy() {
-	}
 }
