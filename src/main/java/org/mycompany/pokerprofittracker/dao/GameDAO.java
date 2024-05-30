@@ -36,39 +36,4 @@ public class GameDAO {
 			}
 		}
 	}
-
-
-	public List<User> getAllUsers() {
-		Connection conn = null;
-		PreparedStatement statement = null;
-		ResultSet resultSet = null;
-
-		List<User> users = new ArrayList<>();
-		String query = "SELECT * FROM users";
-
-		try {
-			conn = ConnectionPool.getConnection();
-			statement = conn.prepareStatement(query);
-			resultSet = statement.executeQuery();
-
-			while (resultSet.next()) {
-				int id = resultSet.getInt("id");
-				String userName = resultSet.getString("name");
-				double totalGambled = resultSet.getDouble("totalGambled");
-				users.add(new User(id, userName, totalGambled));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try{
-				if (statement != null) {
-					ConnectionPool.closeConnection(conn);
-					statement.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return users;
-	}
 }

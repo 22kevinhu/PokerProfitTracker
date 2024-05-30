@@ -3,6 +3,7 @@ package org.mycompany.pokerprofittracker.controller;
 import java.io.*;
 import java.util.List;
 
+import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -19,15 +20,17 @@ public class GameController extends HttpServlet {
 //		Game game = new Game(request.getParameter(""));
 	}
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		GameDAO gameDAO = new GameDAO();
-		List<User> users = gameDAO.getAllUsers();
-		request.setAttribute("users", users);
-		try {
-			request.getRequestDispatcher("/views/addGame.jsp").forward(request, response);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		}
+		UserDAO userDAO= new UserDAO();
+		List<User> users = userDAO.getAllUsers();
+
+		Gson gson = new Gson();
+		String json = gson.toJson(users);
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(json);
 	}
 
 }
