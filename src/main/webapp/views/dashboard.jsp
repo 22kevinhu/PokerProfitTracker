@@ -19,7 +19,7 @@
             <h2>What would you like to do?</h2>
             <ul>
                 <a href="addUser.jsp" class="addUser">Add User</a>
-                <a href="addGame.jsp" class="addGame">Add Game</a>
+                <a href="addGame.jsp" class="logGame">Log Game</a>
                 <a href="game-controller" class="modifyGame">Modify Games</a>
             </ul>
         </div>

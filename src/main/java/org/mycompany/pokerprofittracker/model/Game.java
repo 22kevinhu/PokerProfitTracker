@@ -1,6 +1,7 @@
 package org.mycompany.pokerprofittracker.model;
 
 public class Game {
+	private int gameId;
 	private final int ownerId;
 	private double profit;
 	private String gamePlayed;
@@ -15,8 +16,15 @@ public class Game {
 		return ownerId;
 	}
 
+	public int getGameId() {
+		return gameId;
+	}
+
 	public double getProfit() {
 		return profit;
+	}
+	public void setGameId(int gameId) {
+		this.gameId = gameId;
 	}
 
 	public void setProfit(double profit) {

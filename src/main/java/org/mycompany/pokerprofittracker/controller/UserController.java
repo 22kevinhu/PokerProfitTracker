@@ -18,7 +18,8 @@ public class UserController extends HttpServlet {
 		User user = new User(username);
 
 		userDAO.addUser(user);
-		response.sendRedirect("views/addUser.jsp");
-		System.out.println("Successfully added user");
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/views/dashboard.jsp");
+		System.out.println("Successfully added User");
 	}
 }

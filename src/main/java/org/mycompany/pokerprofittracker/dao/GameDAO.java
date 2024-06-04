@@ -18,10 +18,12 @@ public class GameDAO {
 
 		try {
 			conn = ConnectionPool.getConnection();
-			statement = conn.prepareStatement("INSERT INTO games (owner_id, profit) VALUES (?, ?)");
+			statement = conn.prepareStatement("INSERT INTO games (owner_id, profit, game_played) VALUES (?, ?, ?)");
 
 			statement.setInt(1, game.getOwnerId());
 			statement.setDouble(2, game.getProfit());
+			statement.setString(3, game.getGamePlayed());
+
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -32,6 +34,33 @@ public class GameDAO {
 					statement.close();
 				}
 			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void updateGame(Game game) {
+		Connection conn = null;
+		PreparedStatement statement = null;
+
+		try {
+			conn = ConnectionPool.getConnection();
+			statement = conn.prepareStatement("UPDATE games SET profit = ?, game_played = ? WHERE id = ?");
+
+			statement.setDouble(1, game.getProfit());
+			statement.setString(2, game.getGamePlayed());
+			statement.setInt(3, game.getGameId());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (statement != null) {
+					ConnectionPool.closeConnection(conn);
+					statement.close();
+				}
+			} catch(SQLException e) {
 				e.printStackTrace();
 			}
 		}

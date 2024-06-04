@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserDAO {
@@ -43,7 +43,7 @@ public class UserDAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
-		List<User> users = new ArrayList<>();
+		List<User> users = new LinkedList<>();
 		String query = "SELECT * FROM users";
 
 		try {
