@@ -6,6 +6,13 @@ public class Game {
 	private double profit;
 	private String gamePlayed;
 
+	public Game(int gameId, int ownerId, double profit, String gamePlayed) {
+		this.gameId = gameId;
+		this.ownerId = ownerId;
+		this.profit = profit;
+		this.gamePlayed = gamePlayed;
+	}
+
 	public Game(int ownerId, double profit, String gamePlayed) {
 		this.ownerId = ownerId;
 		this.profit = profit;

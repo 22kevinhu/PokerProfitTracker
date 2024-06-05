@@ -20,7 +20,7 @@
             <ul>
                 <a href="addUser.jsp" class="addUser">Add User</a>
                 <a href="addGame.jsp" class="logGame">Log Game</a>
-                <a href="game-controller" class="modifyGame">Modify Games</a>
+                <a href="updateGame.jsp" class="updateGame">Update Game</a>
             </ul>
         </div>
         <div class="leaderboard">

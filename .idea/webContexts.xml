@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/addGame.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/updateGame.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views" />
       </map>
     </option>
   </component>
