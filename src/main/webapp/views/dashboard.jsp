@@ -5,14 +5,12 @@
     <title>Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
-    <script src="${pageContext.request.contextPath}/resources/scripts/script.js"></script>
+    <link rel = "stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles.css" v="1.0.1">
 </head>
 <body>
     <div class="mainContainer">
         <div class="mainMessage">
             <h1>Poker Profit Tracker</h1>
-            <p id="mainMessage" class="mainMessage">Insert Message</p>
             <br><br>
         </div>
         <div class="options">
@@ -21,14 +19,6 @@
                 <a href="addUser.jsp" class="addUser">Add User</a>
                 <a href="addGame.jsp" class="logGame">Log Game</a>
                 <a href="updateGame.jsp" class="updateGame">Update Game</a>
-            </ul>
-        </div>
-        <div class="leaderboard">
-            <h3>Leaderboard</h3>
-            <ul>
-                1. Kevin (Total Spent: $100, Total Profit: -$50)
-                2. Payton
-                etc
             </ul>
         </div>
     </div>

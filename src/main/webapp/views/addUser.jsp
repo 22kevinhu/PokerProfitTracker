@@ -12,17 +12,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
-    <script src="${pageContext.request.contextPath}/resources/scripts/script.js"></script>
 </head>
 <body>
     <div class="mainContainer">
-        <h2>Add a User</h2>
+        <div class="title">
+            <h2>Add a User</h2>
+        </div>
         <div class="formContainer">
             <form action="${pageContext.request.contextPath}/userController" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name"><br>
 
-                <input type="submit" value="submit">
+                <input id="submit" type="submit" value="submit">
             </form>
         </div>
     </div>
